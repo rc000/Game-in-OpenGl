@@ -24,6 +24,7 @@ GLuint vbo;
 
 public :ParticleState *state;
 public :Particle();
+		~Particle();
 	void update(int frame,int ry);
 	void set(float x, float y, float z);
 	void draw();
