@@ -60,16 +60,14 @@ void  ParticleSystem::draw()
 	for (vector<Particle>::iterator it = Particles.begin(); it != Particles.end();)
 	{
 
-		if ((it->getLive() > 12) && ((*it).state.change_texsmoke == false))
+		if (it->getLive() > 12)
 		{
 			glBindTexture(GL_TEXTURE_2D, texsmoke);
-			it->state.change_texsmoke == true;
-		}
-		else if (it->getLive()  <= 12 && it->state.change_texfire == false)
+ 		}
+		else if (it->getLive()  <= 12 )
 		{
 			glBindTexture(GL_TEXTURE_2D, texfire);
-			it->state.change_texfire == true;
-
+ 
 		}
 		float m1_dif[] = { 1.0f, 1.0f, 1.0f, 1.0f };
 		float m1_amb[] = { 1.0f, 1.0f, 1.0f, 1.0f };
