@@ -1,4 +1,4 @@
-// Deklaracje funkcji u¿ywanych jako obs³uga zdarzeñ GLUTa.
+// Deklaracje funkcji uÂ¿ywanych jako obsÂ³uga zdarzeÃ± GLUTa.
 #include "Terrain.h"
  #include "Tank.h"
 #include "Skydome.h"
@@ -31,22 +31,22 @@ GLuint LoadTextureTga(char * file, int magFilter, int minFilter);
 void DrawString(float x, float y, const char * string);
 
 
-// Uniwersalna struktura reprezentuj¹ca trójwymiarowy wektor.
-// Mo¿e s³u¿yæ do przechowywania po³o¿enia punktu, wspó³rzêdnych wektora itp.
-// Wskazane jest rozszerzenie tej struktury o metody i operatory pozwalaj¹ce
-// na wykonywanie operacji na wektorach - to na pewno siê przyda w przysz³oœci.
+// Uniwersalna struktura reprezentujÂ¹ca trÃ³jwymiarowy wektor.
+// MoÂ¿e sÂ³uÂ¿yÃ¦ do przechowywania poÂ³oÂ¿enia punktu, wspÃ³Â³rzÃªdnych wektora itp.
+// Wskazane jest rozszerzenie tej struktury o metody i operatory pozwalajÂ¹ce
+// na wykonywanie operacji na wektorach - to na pewno siÃª przyda w przyszÂ³oÅ“ci.
 
 struct vec3 {
 	float x, y, z;
 };
 
 
-// Struktura pozwalaj¹ca na przechowanie aktualnego stanu kamery.
+// Struktura pozwalajÂ¹ca na przechowanie aktualnego stanu kamery.
 struct SCameraState {
 	vec3 pos; // pozycja kamery
 	vec3 dir_view; // kierunek patrzenia (wektor jednostkowy)
 	vec3 dir_move;
-	float speed; // mno¿nik zmian pozycji - "szybkoœæ" ruchów kamery
+	float speed; // mnoÂ¿nik zmian pozycji - "szybkoÅ“Ã¦" ruchÃ³w kamery
 	float v1, v2;
 };
 enum GameState {
@@ -57,7 +57,7 @@ enum GameState {
  };
 GameState gameState;
 
-// Zmienna przechowuj¹ca aktualny stan kamery.
+// Zmienna przechowujÂ¹ca aktualny stan kamery.
 SCameraState player;
 vec3 LightPos; // pozycja zrodla swiatla
 Terrain teren;
