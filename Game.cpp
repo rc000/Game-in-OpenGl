@@ -1,5 +1,5 @@
-﻿#include "stdafx.h"
-#include "Obrona_miasta.h"
+#include "stdafx.h"
+#include "Game.h"
 #include <ctime>
 #include <cstdlib>
 #include <sstream>
@@ -26,6 +26,7 @@ float spe_sky[] = { 0.5f, 0.5f, 0.5f,1.0f };
 int minutes = 0;
 int hours = 0;
 int chances = 5;
+float move_airplane_z = -200.0f;
 
 int time_from_defeat = 0;
 bool tex_skydome = false;
@@ -140,7 +141,7 @@ void init()
 	skyd1 = LoadTexture("Resources\\textures\\skydom.bmp", GL_LINEAR, GL_LINEAR_MIPMAP_NEAREST);
 	tank_szanse = LoadObj("Resources\\tank_lives.obj");
 
-	teren.prepare_render(texgrass, texwater);
+	teren.prepareRender(texgrass, texwater);
  	kadlub = LoadObj("Resources\\czolg1.obj");
 
 
@@ -165,25 +166,25 @@ void init()
 
 	for (int i = -250; i < 250; i += 20)
 	{
-		Tree *drzewo;
+		Tree drzewo;
 
 
-		drzewo->set(i, teren.linearInterpolation(i, -250.0f), -250.0f, pien, liscie);
+		drzewo.set(i, teren.linearInterpolation(i, -250.0f), -250.0f, pien, liscie);
 
 		drzewa.push_back(drzewo);
-		drzewo->set(i, teren.linearInterpolation(i, -250.0f), 250.0f, pien, liscie);
-		drzewa->push_back(drzewo);
+		drzewo.set(i, teren.linearInterpolation(i, -250.0f), 250.0f, pien, liscie);
+		drzewa.push_back(drzewo);
 
 
 	}
 	for (int i = -240; i < 260; i += 20)
 	{
-		Tree *drzewo;
-		drzewo->set(i, teren.linearInterpolation(i, -240.0f), -240.0f, pien, liscie);
+		Tree drzewo;
+		drzewo.set(i, teren.linearInterpolation(i, -240.0f), -240.0f, pien, liscie);
 
 
 		drzewa.push_back(drzewo);
-		drzewo->set(i, teren.linearInterpolation(i, -240.0f), 240.0f, pien, liscie);
+		drzewo.set(i, teren.linearInterpolation(i, -240.0f), 240.0f, pien, liscie);
 		drzewa.push_back(drzewo);
 
 
@@ -636,7 +637,7 @@ void OnRender() {
 	if (time_from_defeat > 30)
 	{
 	
-		gameState = LOST;
+		gameState = LOSE;
 	}
 	if (hours > 23)
 	{
@@ -647,7 +648,6 @@ void OnRender() {
 	{
 		if (airplane == false)
 		{
-			float move_airplane_z = -200.0f;
 
 			engine->play2D("Resources\\sounds\\airplane.wav");
 		}
@@ -854,8 +854,8 @@ void OnRender() {
 
 					czolgi.at(i).set_zniszczony(true);
 				}
-				czolgi.at(i).inc_czas();
-				if (czolgi.at(i).get_czas() > 100)
+				czolgi.at(i).increase_czas();
+				if (czolgi.at(i).getTime() > 100)
 				{
 
 
@@ -887,13 +887,13 @@ void OnRender() {
 
 		for (int i = 0; i < emitery.size(); i++)
 		{
-			if (emitery.at(i)->get_czas() < 100)
+			if (emitery.at(i)->getTime() < 100)
 			{
 				emitery.at(i)->draw();
 				emitery.at(i)->update(frame);
 				emitery.at(i)->add(frame);
 			}
-			else if (emitery.at(i)->get_czas() > 100)
+			else if (emitery.at(i)->getTime() > 100)
 			{
 				delete emitery.at(i);
 				emitery.erase(emitery.begin() + i);
