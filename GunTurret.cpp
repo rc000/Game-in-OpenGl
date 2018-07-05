@@ -1,9 +1,9 @@
 #include "stdafx.h"
 #include<iostream>
-#include "Wieza.h"
+#include "GunTurret.h"
 
 using namespace std;
-void Wieza::set(float xt, float yt, float zt, GLuint wieza1)
+void GunTurret::set(float xt, float yt, float zt, GLuint wieza1)
 {
 	x = xt;
 	y = yt;
@@ -15,10 +15,10 @@ void Wieza::set(float xt, float yt, float zt, GLuint wieza1)
 	z2 = z + 5.0f;
 }
 
-Wieza::Wieza():x(0),y(0),z(0)
+GunTurret::GunTurret():x(0),y(0),z(0)
 {
 }
-void Wieza::Render(float move_op, float posy, float posz, float rot_start, float rot, GLuint wieza1,float rot_destroy)
+void GunTrret::Render(float move_op, float posy, float posz, float rot_start, float rot, GLuint wieza1,float rot_destroy)
 {
 	wieza = wieza1;
 	glPushMatrix();
