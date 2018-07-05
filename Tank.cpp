@@ -61,7 +61,7 @@ int Tank::getTime()
 {
 	return czas_od_zniszczenia;
 }
-void Tank::increase_czas()
+void Tank::increaseTime()
 {
 	czas_od_zniszczenia++;
 }
