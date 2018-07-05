@@ -15,7 +15,7 @@ public :int health;
 public:
 	void set(float xt, float yt, float zt, GLuint tank1);
 	int getTime();
-	void increase_czas();
+	void increaseTime();
 	int get_health();
 	void set_z(float z1);
 	void set_x(float x1);
