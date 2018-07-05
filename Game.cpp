@@ -854,7 +854,7 @@ void OnRender() {
 
 					czolgi.at(i).set_zniszczony(true);
 				}
-				czolgi.at(i).increase_czas();
+				czolgi.at(i).increaseTime();
 				if (czolgi.at(i).getTime() > 100)
 				{
 
