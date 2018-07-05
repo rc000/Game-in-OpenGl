@@ -43,9 +43,9 @@ Tank::Tank():x(0),y(0),z(0),health(4),czas_od_zniszczenia(0),zniszczony(false)
 {
 
 }
-void Tank::render_kadlub(float move_op, float posy, float posz, float rot_start, float rot, float rotx, float rotz, GLuint kadlub1)
+void Tank::renderCore(float move_op, float posy, float posz, float rot_start, float rot, float rotx, float rotz, GLuint kadlub1)
 {
-	kadlub.Render(move_op, posy, posz, rot_start, rot, kadlub1);
+	core.Render(move_op, posy, posz, rot_start, rot, kadlub1);
 
 }
 bool Tank::czy_zniszczony()
@@ -65,13 +65,13 @@ void Tank::increase_czas()
 {
 	czas_od_zniszczenia++;
 }
-void Tank::render_wieza(float move_op, float posy,  float posz,float rot_start, float rot, float rotx, float rotz, float destroy,GLuint wieza1)
+void Tank::renderTurret(float move_op, float posy,  float posz,float rot_start, float rot, float rotx, float rotz, float destroy,GLuint wieza1)
 {
 	if(health>0)
-	wieza.Render(move_op, posy, posz, rot_start, rot, wieza1,0.0f);
+	gunTurret.Render(move_op, posy, posz, rot_start, rot, wieza1,0.0f);
 	else
 	{
-		wieza.Render(move_op + 5.0f, posy, posz + 5.0f, rot_start, rot, wieza1, destroy);
+		gunTurret.Render(move_op + 5.0f, posy, posz + 5.0f, rot_start, rot, wieza1, destroy);
 	}
 }
 int Tank::get_health()
