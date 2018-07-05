@@ -821,8 +821,8 @@ void OnRender() {
 		float rotxr, rotzr, rotxs, rotzs;
 		rotxr = atan2(player.pos.x + player.dir_move.x*0.5, player.pos.z + player.dir_move.z*0.5);
 		tank_player.Render(player.pos.x, teren.linearInterpolation(player.pos.x, player.pos.z) , player.pos.z, -90.0f, rot_move, 0.0f, 0.0f, false);
-		tank_player.render_kadlub(player.pos.x, teren.linearInterpolation(player.pos.x, player.pos.z)  , player.pos.z, -90.0f, rot_move, 0.0f, 0.0f, kadlub);
-		tank_player.render_wieza(player.pos.x, teren.linearInterpolation(player.pos.x, player.pos.z)  , player.pos.z, -90.0f, rot, 0.0f, 0.0f, 0.0f, wieza);
+		tank_player.renderCore(player.pos.x, teren.linearInterpolation(player.pos.x, player.pos.z)  , player.pos.z, -90.0f, rot_move, 0.0f, 0.0f, kadlub);
+		tank_player.renderTurret(player.pos.x, teren.linearInterpolation(player.pos.x, player.pos.z)  , player.pos.z, -90.0f, rot, 0.0f, 0.0f, 0.0f, wieza);
 		glDisable(GL_TEXTURE_2D);
 
 		bool move_tank = false;
