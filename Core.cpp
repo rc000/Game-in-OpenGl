@@ -1,9 +1,9 @@
 #include "stdafx.h"
 #include<iostream>
-#include "Kadlub.h"
+#include "Core.h"
 
 using namespace std;
-void Kadlub::set(float xt, float yt, float zt, GLuint kadlub)
+void Core::set(float xt, float yt, float zt, GLuint kadlub)
 {
 	x = xt;
 	y = yt;
@@ -15,10 +15,10 @@ void Kadlub::set(float xt, float yt, float zt, GLuint kadlub)
 	z2 = z + 5.0f;
 }
  
-Kadlub::Kadlub():x(0),y(0),z(0)
+Core::Core():x(0),y(0),z(0)
 {
 }
-void Kadlub::Render(float move_op, float posy, float posz, float rot_start,float rot, GLuint kadlub)
+void Core::Render(float move_op, float posy, float posz, float rot_start,float rot, GLuint kadlub)
 {
 	this->kadlub = kadlub;
 	glPushMatrix();
