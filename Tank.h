@@ -1,12 +1,12 @@
 #pragma once
 #include "stdafx.h"
-#include "Kadlub.h"
-#include "Wieza.h"
+#include "Core.h"
+#include "GunTurret.h"
 
 class Tank {
 	float x, x1, x2, y,y1,y2, z, z1, z2;
-	Kadlub kadlub;
-	Wieza wieza;
+	Core core;
+	GunTurret gunTurret;
 	bool zniszczony;
 	int czas_od_zniszczenia;
 public :int health;
@@ -28,8 +28,8 @@ public:
 	bool czy_zniszczony();
 
 	Tank();
-	void render_kadlub(float move_op, float posy,float posz,float rot_start, float rot, float rotx, float rotz, GLuint kadlub1);
-	void render_wieza(float move_op, float posy,float posz, float rot_start, float rot, float rotx, float rotz,float destroy, GLuint wieza1);
+	void renderCore(float move_op, float posy,float posz,float rot_start, float rot, float rotx, float rotz, GLuint kadlub1);
+	void renderTurret(float move_op, float posy,float posz, float rot_start, float rot, float rotx, float rotz,float destroy, GLuint wieza1);
 
 	void Render(float move_op, float posy, float posz,  float rot_start,float rot,float rotx,float rotz,bool h);
 	bool Kolizja(float posx, float y,float z,bool pocisk);
